@@ -67,6 +67,7 @@ class Place(BaseModel, Base):
 
             return list(
                 filter(lambda review: (review.place_id == self.id), reviews))
+
         @property
         def amenities(self):
             """ Returns list of amenity ids """

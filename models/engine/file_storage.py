@@ -8,7 +8,7 @@ class FileStorage:
     __file_path = 'file.json'
     __objects = {}
 
-    def all(self, cls = None):
+    def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
         if cls:
             temp = {}
@@ -56,8 +56,8 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
-        """ method: def delete(self, obj=None): to delete obj from __objects if it’s inside - if obj is equal to None, 
-            the method should not do anything
+        """ method: def delete(self, obj=None): to delete obj from __objects if it’s inside - if obj is 
+            equal to None, the method should not do anything
         """
         if obj == None:
             return
@@ -68,4 +68,4 @@ class FileStorage:
         except AttributeError:
             pass
         except KeyboardInterrupt:
-            pass    
+            pass  

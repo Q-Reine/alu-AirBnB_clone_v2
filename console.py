@@ -125,9 +125,9 @@ class HBNBCommand(cmd.Cmd):
         elif class_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
-         
+
         my_list = args.split(" ")
-        
+
         new_instance = eval(class_name)()
 
         for i in range(1, len(my_list)):
@@ -139,14 +139,13 @@ class HBNBCommand(cmd.Cmd):
                     value = eval(value)
                 except Exception:
                     print(f"** couldn't evaluate {value}")
-                    pass
-            if hasattr(new_instance, key): 
-                setattr(new_instance, key, value) 
+                pass
+        if hasattr(new_instance, key): 
+            setattr(new_instance, key, value) 
 
         storage.new(new_instance)         
         print(new_instance.id)
-        storage.save()                  
-        
+        storage.save()                         
 
     def help_create(self):
         """ Help information for the create method """
@@ -209,7 +208,7 @@ class HBNBCommand(cmd.Cmd):
         key = c_name + "." + c_id
 
         try:
-            del(storage.all()[key])
+            del(storage.all()[key]) 
             storage.save()
         except KeyError:
             print("** no instance found **")
@@ -344,3 +343,4 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
+
