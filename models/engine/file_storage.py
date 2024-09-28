@@ -55,18 +55,17 @@ class FileStorage:
         except FileNotFoundError:
             pass
 
-        def delete(self, obj=None):
-            """ method: def delete(self, obj=None): to delete obj from __objects if it’s inside - if obj is equal to None, 
+    def delete(self, obj=None):
+        """ method: def delete(self, obj=None): to delete obj from __objects if it’s inside - if obj is equal to None, 
             the method should not do anything
-            """
-            if obj == None:
-                return
-            obj_to_del = f"(obj.__class__.__name).{obj.id}"
-            try:
-                del FileStorage.__objects[obj_to_del]
-            except AttributeError:
-                pass
-            except KeyboardInterrupt:
-                pass
-        
+        """
+        if obj == None:
+            return
+        obj_to_del = f"(obj.__class__.__name).{obj.id}"
+        try:
+            del FileStorage.__objects[obj_to_del]
+        except AttributeError:
+            pass
+        except KeyboardInterrupt:
+            pass    
 
