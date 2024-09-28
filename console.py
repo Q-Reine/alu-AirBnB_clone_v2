@@ -140,8 +140,8 @@ class HBNBCommand(cmd.Cmd):
                 except Exception:
                     print(f"** couldn't evaluate {value}")
                 pass
-        if hasattr(new_instance, key):
-            setattr(new_instance, key, value)
+            if hasattr(new_instance, key):
+                setattr(new_instance, key, value)
 
         storage.new(new_instance)
         print(new_instance.id)
