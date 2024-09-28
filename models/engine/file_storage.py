@@ -61,9 +61,10 @@ class FileStorage:
         """
         if obj == None:
             return
-        obj_to_del = f"(obj.__class__.__name).{obj.id}"
+        obj_to_del = f"{obj.__class__.__name}.{obj.id}"
         try:
-            del FileStorage.__objects[obj_to_del]
+            del self.all()[obj_to_del]
+            self.save()
         except AttributeError:
             pass
         except KeyboardInterrupt:
