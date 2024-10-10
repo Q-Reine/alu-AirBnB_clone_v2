@@ -22,6 +22,7 @@ def c_is_fun(text):
     by the value of the text variable """
     return 'C {}'.format(text.replace('_', ' '))
 
+
 @app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def python_is_cool(text='is cool'):
