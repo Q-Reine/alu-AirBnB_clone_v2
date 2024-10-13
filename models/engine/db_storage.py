@@ -3,7 +3,6 @@
 from os import getenv
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import (create_engine)
-from sqlalchemy.ext.declarative import declarative_base
 from models.base_model import Base
 from models.state import State
 from models.city import City
@@ -14,7 +13,7 @@ from models.amenity import Amenity
 
 
 class DBStorage:
-    """ create tables"""
+    """ create tables in environmental"""
     __engine = None
     __session = None
 
@@ -39,7 +38,7 @@ class DBStorage:
         """
         dic = {}
         if cls:
-            if type(cls) is str:
+            if isinstance(cls, str):
                 cls = eval(cls)
             query = self.__session.query(cls)
             for elem in query:
@@ -79,6 +78,6 @@ class DBStorage:
         self.__session = Session()
 
     def close(self):
-        """  calls remove()
+        """ calls remove()
         """
         self.__session.close()
