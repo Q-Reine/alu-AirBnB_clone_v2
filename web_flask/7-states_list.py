@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    List States
+List States
 """
 
 from flask import Flask, render_template
@@ -15,7 +15,7 @@ def states_list():
     """Display HTML list of states
     """
     states = storage.all('State').values()
-    return render_template('7-states_list.html', states=states)
+    return render_template('7-states_list.html', sorted_states=states)
 
 
 @app.teardown_appcontext
