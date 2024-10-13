@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""List States"""
+"""
+    List States
+"""
 
 from flask import Flask, render_template
 from models import storage
@@ -10,7 +12,8 @@ app = Flask(__name__)
 
 @app.route('/states_list', strict_slashes=False)
 def states_list():
-    """Display HTML list of states"""
+    """Display HTML list of states
+    """
     states = storage.all('State').values()
     return render_template('7-states_list.html', states=states)
 
