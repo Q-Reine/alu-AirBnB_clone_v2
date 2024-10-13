@@ -22,7 +22,7 @@ def state_list():
 @app.route('/states/<id>', strict_slashes=False)
 def states_by_id(id):
     """State by ID"""
-    all_states = storage.all('State')
+    all_states = storage.all('State').values()
     key = "State.{}".format(id)
     try:
         states = all_states[key]
