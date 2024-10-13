@@ -25,10 +25,10 @@ def states_by_id(id):
     all_states = storage.all('State')
     key = "State.{}".format(id)
     try:
-        state = all_states[key]
+        states = all_states[key]
         return render_template(
             '9-states.html',
-            state=state,
+            states=states,
             condition="state_id")
     except BaseException:
         return render_template('9-states.html', condition="not_found")
